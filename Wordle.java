@@ -204,12 +204,12 @@ public class Wordle {
                     // compares word guess to all randomly chosen word letters regardless of location
                     if (userGuess.charAt(userIn) == (chosenWord.charAt(chosen))) {
                         // converts proper grammar usage with "a" or "an" before the found out chosen character from the user
-                        // print "an"
                         for (int a = 0; a <= 11; a++) {
+                            // print "an"
                             if (chosenWord.charAt(chosen) == anLetters[a]) {
                                 System.out.printf("There is an %c, but not at character #%d%n", chosenWord.charAt(chosen), userIn + 1);
                                 break;
-                                // print "a"
+                            // print "a"
                             } else if (a == 11) {
                                 System.out.printf("There is a %c, but not at character #%d%n", chosenWord.charAt(chosen), userIn + 1);
                                 break;
