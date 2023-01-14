@@ -3,7 +3,7 @@
 
 ## How does it work?
 
-This is based on using 'System.out.print' from Java.
+This is based on using `System.out.print` from Java.
 More specifically, it tries to read in a file in the same folder titled `words.txt`, then loads in the game by using that file, checking for 5-letter words in each line to take in.
 
 Then, the AI randomizes a number based on how many words are in `words.txt` and picks out a word on the line based on the randomized number, but doesn't show that chosen word to the user.
