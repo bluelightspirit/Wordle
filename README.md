@@ -11,6 +11,11 @@ If the user matches some letters of the chosen word, they are given hints of wha
 
 If the user runs out of tries, then they have lost the game and are given the chosen word.
 
+The game should look like this:\
+![wordle_start](https://user-images.githubusercontent.com/22280271/213863975-60c5df76-2c08-4fae-a6b9-774a258ec19b.jpg)
+![wordle_guess](https://user-images.githubusercontent.com/22280271/213863980-1f2e3e47-35cd-4022-8352-73d71e189d0f.jpg)
+
+
 ## More specifics on the game
 
 If the user enters in a 5-letter word that matches the [`words.txt`](https://github.com/bluelightspirit/Wordle/blob/main/words.txt) list, they use one of their 6 tries. If they do not match the first 5 letters of a 5-letter word in [`words.txt`](https://github.com/bluelightspirit/Wordle/blob/main/words.txt), they are asked to guess again and a try is not used.
