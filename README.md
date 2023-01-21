@@ -31,6 +31,12 @@ Then, the AI randomizes a number based on how many words are in [`words.txt`](ht
 
 After that, the AI gives the user an option to enter in a 5-letter word. The user has 6 tries to guess the correct chosen word by the AI.
 
+## What I Learned
+
+1) How to read a .txt file specifically looking for 5-character lines per line in the file.
+2) I can shortcut seraching through an ArrayList by doing .contains()
+3) Another way of escaping a while loop in the main method by setting tries to -1 before checking a winner
+
 ## Compiling
 
 This program uses solely Java to compile.
