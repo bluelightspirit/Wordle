@@ -1,0 +1,135 @@
+Experiment: Testing speed of Wordle.java
+Skipping character compared to if correct vs. not shall be tested 60 times, in compareToGeneral().
+startTime will be recorded right after tries--
+and endTime will be recorded at the end of compareToGeneral()
+
+words.txt:
+aaaaa
+aaaab
+aaaac
+aaaad
+aaaae
+aaaaf
+aaaag
+
+The word will always be "aaaaa."
+I will always guess in this order:
+aaaab
+aaaac
+aaaad
+aaaae
+aaaaf
+aaaag
+
+Experiment, with skip character compared to if correct added:
+1) 2407800, 1270900, 687300, 821700, 476700, 332800
+2) 1117200, 528700, 884300, 813100, 608500, 513700
+3) 717000, 904600, 536100, 719900, 599900, 189600
+4) 882100, 903200, 1007400, 736100, 592800, 1232400
+5) 1322500, 779000, 470400, 1036600, 588100, 492100
+6) 723000, 221200, 818100, 783600, 487800, 612800
+7) 1491300, 815000, 1106700, 802600, 945400, 529300
+8) 1612100, 560200, 774900, 1516900, 441300, 688100
+9) 1139100, 570600, 906600, 593000, 335800, 596400
+10) 282300, 561100, 859300, 780300, 340700, 520000
+46,588,000 ns / 60 = ~776,467 ns AVG
+
+Experiment, with skip character compared to if correct removed (within nested for loop in compareToGeneral()):
+1) 2352000, 1550600, 1452900, 989600, 1559300, 1784300
+2) 2187100, 1364300, 1143200, 1060500, 1057100, 1083600
+3) 1629500,  1262900, 919700, 1173200, 1161200, 760300
+4) 1543000, 1174500, 980500, 1110900, 1128600, 890800
+5) 1939200, 1407100, 965900, 1157500, 1123600, 830100
+6) 1078500, 1051300, 1261700, 1025500, 1720700, 1031200
+7) 1495600, 1029900, 766900, 1175400, 1647300, 827000
+8) 2286400, 985500, 1110500, 1302800. 877400, 942100
+9) 1504900, 529100,  1350100, 1085000, 1759000, 931000
+10) 1341000, 1284600, 1482300, 1509400, 999500, 982500
+72,936,900 ns / 60 = 1,215,615 ns AVG
+
+776,467 ns / 1,215,615 ns = 63.87% faster
+
+Code used to compare:
+> Character comparison if correct added in:
+    public void compareToGeneral() {
+        // subtract global tries count
+        tries--;
+        final long startTime = System.nanoTime();
+        // loops through chars 1-5 of both userGuess from the user and chosenWord from the program both at once
+        for (int i = 0; i <= 4; i++) {
+            // compares word guess respective to randomly chosen word
+            if (userGuess.charAt(i) == (chosenWord.charAt(i))) {
+                System.out.printf("The %c is right! (Character #%d)%n", chosenWord.charAt(i), i+1);
+            }
+        }
+        // nested for loop purpose: finding other characters that the user guessed that are found in the randomly chosen word
+        // first loop is to get characters from the user itself (for their word guess)
+        for (int userIn = 0; userIn <= 4; userIn++) {
+            // skip the character being compared to the randomly chosen word if correct
+            if (userGuess.charAt(userIn) != chosenWord.charAt(userIn)) {
+                // second loop is to get characters from the program itself (for the randomly chosen word)
+                for (int chosen = 0; chosen <= 4; chosen++) {
+                    // compares word guess to all randomly chosen word letters regardless of location
+                    if (userGuess.charAt(userIn) == (chosenWord.charAt(chosen))) {
+                        // converts proper grammar usage with "a" or "an" before the found out chosen character from the user
+                        // print "an"
+                        for (int a = 0; a <= 11; a++) {
+                            if (chosenWord.charAt(chosen) == anLetters[a]) {
+                                System.out.printf("There is an %c, but not at character #%d%n", chosenWord.charAt(chosen), userIn + 1);
+                                break;
+                                // print "a"
+                            } else if (a == 11) {
+                                System.out.printf("There is a %c, but not at character #%d%n", chosenWord.charAt(chosen), userIn + 1);
+                                break;
+                            }
+                        }
+                        // break for purpose of escaping character being compared to chosen word character's for loop
+                        break;
+                    }
+                }
+            }
+        }
+        final long endTime = System.nanoTime();
+        System.out.println("Total execution time: " + (endTime - startTime));
+    }
+
+
+> Character comparison if correct removed:
+    public void compareToGeneral() {
+        // subtract global tries count
+        tries--;
+        final long startTime = System.nanoTime();
+        // loops through chars 1-5 of both userGuess from the user and chosenWord from the program both at once
+        for (int i = 0; i <= 4; i++) {
+            // compares word guess respective to randomly chosen word
+            if (userGuess.charAt(i) == (chosenWord.charAt(i))) {
+                System.out.printf("The %c is right! (Character #%d)%n", chosenWord.charAt(i), i+1);
+            }
+        }
+        // nested for loop purpose: finding other characters that the user guessed that are found in the randomly chosen word
+        // first loop is to get characters from the user itself (for their word guess)
+        for (int userIn = 0; userIn <= 4; userIn++) {
+                // second loop is to get characters from the program itself (for the randomly chosen word)
+                for (int chosen = 0; chosen <= 4; chosen++) {
+                    // compares word guess to all randomly chosen word letters regardless of location
+                    if (userGuess.charAt(userIn) == (chosenWord.charAt(chosen))) {
+                        // converts proper grammar usage with "a" or "an" before the found out chosen character from the user
+                        // print "an"
+                        for (int a = 0; a <= 11; a++) {
+                            if (chosenWord.charAt(chosen) == anLetters[a]) {
+                                System.out.printf("There is an %c, but not at character #%d%n", chosenWord.charAt(chosen), userIn + 1);
+                                break;
+                                // print "a"
+                            } else if (a == 11) {
+                                System.out.printf("There is a %c, but not at character #%d%n", chosenWord.charAt(chosen), userIn + 1);
+                                break;
+                            }
+                        }
+                        // break for purpose of escaping character being compared to chosen word character's for loop
+                        break;
+                    }
+                }
+            }
+        final long endTime = System.nanoTime();
+        System.out.println("Total execution time: " + (endTime - startTime));
+    }
