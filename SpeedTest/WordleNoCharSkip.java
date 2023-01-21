@@ -82,9 +82,10 @@ public class WordleNoCharSkip {
     // randomize a number based upon the amount of words there are in the ArrayList
     // then chose the index of that word in the ArrayList and make that the randomly chosen word
     public void wordRandomizer() {
-        System.out.println("Attempting to get a randomized word from the list...");
-        int randomNum = (int) (Math.random() * words.size());
-        chosenWord = words.get(randomNum);
+        // System.out.println("Attempting to get a randomized word from the list...");
+        // int randomNum = (int) (Math.random() * words.size());
+        // chosenWord = words.get(randomNum);
+        chosenWord = words.get(0);
         System.out.println("Successfully retrieved a randomized word from the list!");
         // cheat code to tell user what the word is before they guess
         // System.out.printf("Randomly Chosen Word: %s%n", chosenWord);
