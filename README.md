@@ -1,5 +1,5 @@
 # Wordle
-## A Java game based on the game Wordle from https://wordlegame.org/
+## A Java game that uses the terminal where the player tries to guess the correct 5-letter chosen word given 6 tries with hints given if the player's word letters match the chosen word, based on the game Wordle from https://wordlegame.org/
 
 ## How does anyone play?
 
