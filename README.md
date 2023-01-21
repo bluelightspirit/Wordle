@@ -3,6 +3,18 @@
 
 ## How does anyone play?
 
+Anyone should be aiming to see the game that looks like this:\
+![wordle_start](https://user-images.githubusercontent.com/22280271/213863975-60c5df76-2c08-4fae-a6b9-774a258ec19b.jpg)
+
+First, all files must be downloaded, where [Wordle.java](https://github.com/bluelightspirit/Wordle/blob/main/Wordle.java) and [words.txt](https://github.com/bluelightspirit/Wordle/blob/main/words.txt) are the most important. It is also optional for the player to use their own words list, as long as [words.txt](https://github.com/bluelightspirit/Wordle/blob/main/words.txt) and [Wordle.java](https://github.com/bluelightspirit/Wordle/blob/main/Wordle.java) are in the same folder and the list has follows the rule of having a 5-letter word per every line with no spaces. To do that, it is suggested to download the ZIP file from [Releases](https://github.com/bluelightspirit/Wordle/releases) or copy the repo from a console like Git. Then, [Wordle.java](https://github.com/bluelightspirit/Wordle/blob/main/Wordle.java) should be compiled. After that, [Wordle.java](https://github.com/bluelightspirit/Wordle/blob/main/Wordle.java) should be ran using any IDE that supports Java such as [IntelliJ](https://www.jetbrains.com/idea/download/) or [BlueJ](https://www.bluej.org/).
+
+After that, the player should guess a 5-letter word that's valid from the [words.txt](https://github.com/bluelightspirit/Wordle/blob/main/words.txt) file that they believe is the randomly chosen word that the AI randomly chose as the goal is to match the AI's randomly chosen word to win the game. They will repeat this up to 6 times and be given hints if they match any characters guessed to the AI's randomly chosen word.
+
+The game should look like this after guessing a valid 5-letter word:\
+![wordle_guess](https://user-images.githubusercontent.com/22280271/213863980-1f2e3e47-35cd-4022-8352-73d71e189d0f.jpg)
+
+## More specifics on the game
+
 If the player matches the 5-letter chosen word by the AI, they win the game and how many extra tries they had remaining.
 
 If the player does not match the 5-letter chosen word by the AI, they use up one of their 6 tries they had from the beginning, assuming that word guessed is not one of the player's previous guessed words.
@@ -10,13 +22,6 @@ If the player does not match the 5-letter chosen word by the AI, they use up one
 If the player matches some letters of the chosen word, they are given hints of what letters match directly to the chosen word first, then are given hints of what letters match to the chosen word, but are in the wrong character position.
 
 If the player runs out of tries, then they have lost the game and are given the chosen word.
-
-The game should look like this:\
-![wordle_start](https://user-images.githubusercontent.com/22280271/213863975-60c5df76-2c08-4fae-a6b9-774a258ec19b.jpg)
-![wordle_guess](https://user-images.githubusercontent.com/22280271/213863980-1f2e3e47-35cd-4022-8352-73d71e189d0f.jpg)
-
-
-## More specifics on the game
 
 If the player enters in a 5-letter word that matches the [`words.txt`](https://github.com/bluelightspirit/Wordle/blob/main/words.txt) list, they use one of their 6 tries. If they do not match the first 5 letters of a 5-letter word in [`words.txt`](https://github.com/bluelightspirit/Wordle/blob/main/words.txt), they are asked to guess again and a try is not used.
 
