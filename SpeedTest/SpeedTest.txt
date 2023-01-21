@@ -1,5 +1,5 @@
 Experiment: Testing speed of Wordle.java
-Skipping character compared to if correct vs. not shall be tested 60 times, in compareToGeneral().
+Skipping character compared to if correct vs. not shall be tested 60 times each, in compareToGeneral().
 startTime will be recorded right after tries--
 and endTime will be recorded at the end of compareToGeneral()
 
