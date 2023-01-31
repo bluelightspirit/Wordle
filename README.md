@@ -44,7 +44,7 @@ After that, the AI gives the player an option to enter in a 5-letter word. The p
 2) I can shortcut seraching through an ArrayList by doing .contains().
 3) Another way of escaping a while loop in the main method by setting tries to -1 before checking a winner.
 
-## What goal(s) did I achieve?
+## What goal(s) did I accomplish?
 
 I created a text-based game like the popular online game Wordle!
 
