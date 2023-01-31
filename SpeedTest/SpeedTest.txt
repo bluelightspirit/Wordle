@@ -1,4 +1,4 @@
-PURPOSE: To test the speed between checking when there are 4 matched characters in the word by skipping the character being compared to chosen word if the character is the same,
+PURPOSE: To test the speed between checking when there are 4 matched characters in the word by skipping the character being compared to chosen word if it's the same,
 VERSUS not skipping that character being compared to the chosen word.
 
 EXPERIMENT: Testing speed of Wordle.java
