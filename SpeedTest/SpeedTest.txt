@@ -1,4 +1,6 @@
-Experiment: Testing speed of Wordle.java
+PURPOSE: To test the speed between checking when there are 4 matched characters in the word by skipping the character being compared to chosen word if the character is the same versus not skipping that 
+
+EXPERIMENT: Testing speed of Wordle.java
 Skipping character compared to if correct vs. not shall be tested 60 times each, in compareToGeneral().
 startTime will be recorded right after tries--
 and endTime will be recorded at the end of compareToGeneral()
